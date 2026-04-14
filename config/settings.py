@@ -39,10 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # Local apps
-    'apps.core.apps.CoreConfig',
-    "apps.clocking.apps.ClockingConfig",
-    "apps.dashboard.apps.DashboardConfig",
-    "apps.accounts.apps.AccountsConfig",
+    # 'apps.core.apps.CoreConfig',
+    # "apps.clocking.apps.ClockingConfig",
+    # "apps.dashboard.apps.DashboardConfig",
+    # "apps.accounts.apps.AccountsConfig",
+
+     # Our apps (ordered by dependency)
+    'apps.core',        # Models first (no dependencies)
+    'apps.clocking',    # Depends on core
+    'apps.dashboard',   # Depends on core
+    'apps.accounts',    # Depends on core
 ]
 
 MIDDLEWARE = [
@@ -121,3 +127,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Default primary key field type
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Session settings (for admin login)
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_AGE = 28800  # 8 hours
+SESSION_SAVE_EVERY_REQUEST = True
