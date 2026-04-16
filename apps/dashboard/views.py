@@ -1,13 +1,19 @@
 from django.shortcuts import render
 from django.utils import timezone
+from datetime import datetime
+
 from apps.core.models import Staff, Attendance
+from apps.accounts.decorators import login_required
 
 
+
+# DASHBOARD
+
+@login_required
 def dashboard(request):
     today = timezone.now().date()
 
     total_staff = Staff.objects.filter(is_active=True).count()
-
     today_records = Attendance.objects.filter(date=today)
 
     present = today_records.filter(status="present").count()
@@ -28,11 +34,10 @@ def dashboard(request):
 
 
 
+# ATTENDANCE LOGS
 
+@login_required
 def attendance_logs(request):
-    from datetime import datetime
-    from django.utils import timezone
-
     date = request.GET.get("date")
 
     if date:
@@ -41,7 +46,6 @@ def attendance_logs(request):
         selected_date = timezone.now().date()
 
     staff_list = Staff.objects.filter(is_active=True)
-
     records = Attendance.objects.filter(date=selected_date)
 
     table_data = []

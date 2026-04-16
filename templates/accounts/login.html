@@ -1,0 +1,30 @@
+{% extends "partials/clocking_base.html" %}
+<!--  -->
+{% block content %}
+
+<div class="card">
+  <h2>Admin Login</h2>
+  <div class="card-sub">Control Room Access</div>
+
+  {% if error %}
+  <div class="error">{{ error }}</div>
+  {% endif %}
+
+  <form method="POST">
+    {% csrf_token %}
+
+    <input name="email" placeholder="admin@uba.com" required />
+    <input name="password" type="password" placeholder="••••••••" required />
+
+    <button>Login</button>
+  </form>
+
+  <p style="margin-top: 15px; font-size: 12px; color: #6b7280">
+    Demo: admin@uba.com / Isaiah@2048
+  </p>
+  <div class="back-home">
+    <a href="/">← Back to Home</a>
+  </div>
+</div>
+
+{% endblock %}

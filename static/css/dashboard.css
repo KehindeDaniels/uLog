@@ -124,6 +124,23 @@ th {
   padding-bottom: 4px;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.logout-btn {
+  background: #d70900;
+  color: white !important;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.logout-btn:hover {
+  background: #b80700;
+}
+
 /* ========================= */
 /* LOGS HEADER */
 /* ========================= */

@@ -223,3 +223,18 @@ button:hover {
   border-radius: 12px;
   margin-top: 20px;
 }
+
+.back-home {
+  margin-top: 16px;
+}
+
+.back-home a {
+  font-size: 13px;
+  color: #6b7280;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.back-home a:hover {
+  color: #d70900;
+}
