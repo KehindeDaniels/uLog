@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+<!--  -->
+{% block title %}Attendance Logs{% endblock %}
+<!--  -->
+{% block content %}
+
+<div class="logs-header">
+  <div>
+    <h1>Attendance Logs</h1>
+    <p class="logs-sub">Records for {{ selected_date|date:"l, F j, Y" }}</p>
+  </div>
+
+  <form method="GET" class="date-filter">
+    <input type="date" name="date" value="{{ selected_date|date:'Y-m-d' }}" />
+    <button type="submit" class="btn-secondary">Filter</button>
+  </form>
+</div>
+
+<div class="stats-grid">
+  <div class="stat-card total">
+    <div class="stat-label">Total</div>
+    <div class="stat-number">{{ total }}</div>
+  </div>
+
+  <div class="stat-card present">
+    <div class="stat-label">Present</div>
+    <div class="stat-number">{{ present }}</div>
+  </div>
+
+  <div class="stat-card late">
+    <div class="stat-label">Late</div>
+    <div class="stat-number">{{ late }}</div>
+  </div>
+
+  <div class="stat-card absent">
+    <div class="stat-label">Absent</div>
+    <div class="stat-number">{{ absent }}</div>
+  </div>
+</div>
+
+<div class="table-card">
+  <table class="attendance-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Clock In</th>
+        <th>Clock Out</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in table_data %}
+      <tr class="{% if r.status == 'late' %}late-row{% endif %}">
+        <td>{{ r.staff.staff_id }}</td>
+        <td>{{ r.staff.full_name }}</td>
+        <td>{{ r.staff.get_department_display }}</td>
+        <td>{{ r.clock_in|time:"H:i"|default:"--" }}</td>
+        <td>{{ r.clock_out|time:"H:i"|default:"--" }}</td>
+        <td>
+          <span class="status-badge status-{{ r.status }}">
+            {{ r.status|title }}
+          </span>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="6" class="empty">No attendance records for this date</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

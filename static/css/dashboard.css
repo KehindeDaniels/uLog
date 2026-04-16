@@ -123,3 +123,115 @@ th {
   border-bottom: 2px solid #d70900;
   padding-bottom: 4px;
 }
+
+/* ========================= */
+/* LOGS HEADER */
+/* ========================= */
+
+.logs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.logs-sub {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* DATE FILTER */
+
+.date-filter {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.date-filter input {
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.btn-secondary {
+  padding: 10px 16px;
+  background: #6b7280;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: #4b5563;
+}
+
+/* ========================= */
+/* TABLE */
+/* ========================= */
+
+.table-card {
+  background: white;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attendance-table th {
+  text-align: left;
+  padding: 14px;
+  font-size: 13px;
+  color: #6b7280;
+  background: #f9fafb;
+}
+
+.attendance-table td {
+  padding: 14px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+/* late highlight */
+.late-row {
+  background: #fef3c7;
+}
+
+/* empty state */
+.empty {
+  text-align: center;
+  padding: 20px;
+  color: #9ca3af;
+}
+
+/* ========================= */
+/* STATUS BADGES */
+/* ========================= */
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-present {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-late {
+  background: #fed7aa;
+  color: #92400e;
+}
+
+.status-absent {
+  background: #fee2e2;
+  color: #991b1b;
+}
