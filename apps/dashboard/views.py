@@ -21,6 +21,7 @@ def dashboard(request):
         "absent": absent,
         "today_records": today_records,
         "today": today,
+        "active_page": "dashboard",
     }
 
     return render(request, "dashboard/home.html", context)

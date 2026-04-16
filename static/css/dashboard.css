@@ -116,3 +116,10 @@ th {
 .nav-links a:hover {
   color: #d70900;
 }
+
+.nav-links a.active {
+  color: #d70900;
+  font-weight: bold;
+  border-bottom: 2px solid #d70900;
+  padding-bottom: 4px;
+}

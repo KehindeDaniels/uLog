@@ -4,8 +4,19 @@
   </div>
 
   <div class="nav-links">
-    <a href="/control/">Dashboard</a>
-    <a href="#">Attendance Logs</a>
-    <a href="#">Staff Management</a>
+    <a
+      href="/control/"
+      class="{% if active_page == 'dashboard' %}active{% endif %}"
+    >
+      Dashboard
+    </a>
+
+    <a href="#" class="{% if active_page == 'logs' %}active{% endif %}">
+      Attendance Logs
+    </a>
+
+    <a href="#" class="{% if active_page == 'staff' %}active{% endif %}">
+      Staff Management
+    </a>
   </div>
 </nav>
