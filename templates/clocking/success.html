@@ -1,10 +1,22 @@
-<h2>✅ Clock-In Successful</h2>
+{% extends "partials/clocking_base.html" %} {% block content %}
 
-<p>{{ name }} ({{ id }})</p>
-<p>Time: {{ time }}</p>
+<div class="card">
+  <div class="success-icon">✔</div>
+
+  <h2>Clock-In Successful</h2>
+  <p>{{ name }} • {{ id }}</p>
+
+  <div class="time-box">
+    <strong>{{ time }}</strong>
+  </div>
+
+  <p style="margin-top: 15px; color: #64748b">Resetting in a few seconds...</p>
+</div>
 
 <script>
   setTimeout(() => {
     window.location.href = "/clock-in/";
   }, 3000);
 </script>
+
+{% endblock %}

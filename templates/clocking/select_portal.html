@@ -1,5 +1,25 @@
-<h1>UBA Attendance System</h1>
+{% extends "partials/clocking_base.html" %} {% block content %}
 
-<a href="/clock-in/">Staff Clock-In</a>
-<br /><br />
-<a href="/control/">Control Dashboard</a>
+<div class="portal-container">
+  <div class="title">Staff Attendance System</div>
+  <div class="subtitle">
+    Clock-in management for United Bank for Africa.<br />
+    Select your portal below.
+  </div>
+
+  <div class="portal-grid">
+    <a href="/clock-in/" class="portal-card">
+      <div class="portal-icon icon-green"></div>
+      <div class="portal-title">Staff Clock-In</div>
+      <div class="portal-desc">Clock in at entrance</div>
+    </a>
+
+    <a href="/control/" class="portal-card">
+      <div class="portal-icon icon-red"></div>
+      <div class="portal-title">Dashboard</div>
+      <div class="portal-desc">Control officer panel</div>
+    </a>
+  </div>
+</div>
+
+{% endblock %}

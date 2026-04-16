@@ -1,0 +1,26 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <title>Ulog</title>
+    <link rel="stylesheet" href="{% static 'css/clocking.css' %}" />
+  </head>
+  <body>
+    <div class="page">
+      <!-- Background Logo -->
+      <!-- <img src="{% static 'images/logo.png' %}" class="bg-logo" /> -->
+
+      <!-- TOP BRAND (NOW USED PROPERLY) -->
+      <div class="brand brand-top">
+        <img src="{% static 'images/logo.png' %}" class="logo-img" />
+
+        <div class="brand-text">
+          <div class="brand-title">Ulog</div>
+          <div class="brand-sub">Staff Attendance System</div>
+        </div>
+      </div>
+
+      {% block content %} {% endblock %}
+    </div>
+  </body>
+</html>

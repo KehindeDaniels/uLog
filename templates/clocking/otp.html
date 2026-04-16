@@ -1,13 +1,49 @@
-<h2>Welcome {{ staff.full_name }}</h2>
+{% extends "partials/clocking_base.html" %} {% block content %}
 
-{% if error %}
-<p style="color: red">{{ error }}</p>
-{% endif %}
+<div class="card">
+  <h2>OTP Verification</h2>
+  <div class="card-sub">Welcome, {{ staff.full_name }}</div>
 
-<form method="POST">
-  {% csrf_token %}
-  <input name="otp" placeholder="123456" />
-  <button type="submit">Verify</button>
-</form>
+  {% if error %}
+  <div class="error">{{ error }}</div>
+  {% endif %}
 
-<p>Demo OTP: 123456</p>
+  <form method="POST">
+    {% csrf_token %}
+
+    <div class="otp-container">
+      <input maxlength="1" class="otp-box" />
+      <input maxlength="1" class="otp-box" />
+      <input maxlength="1" class="otp-box" />
+      <input maxlength="1" class="otp-box" />
+      <input maxlength="1" class="otp-box" />
+      <input maxlength="1" class="otp-box" />
+    </div>
+
+    <input type="hidden" name="otp" id="otp-value" />
+
+    <button>Verify</button>
+  </form>
+</div>
+
+<script>
+  const boxes = document.querySelectorAll(".otp-box");
+  const hidden = document.getElementById("otp-value");
+
+  boxes.forEach((box, i) => {
+    box.addEventListener("input", () => {
+      if (box.value && i < boxes.length - 1) {
+        boxes[i + 1].focus();
+      }
+      updateOTP();
+    });
+  });
+
+  function updateOTP() {
+    hidden.value = Array.from(boxes)
+      .map((b) => b.value)
+      .join("");
+  }
+</script>
+
+{% endblock %}

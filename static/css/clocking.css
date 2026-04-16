@@ -1,0 +1,225 @@
+body {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: linear-gradient(to bottom, #f9fafb, #eef2f7);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* subtle grid background */
+/* body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+  } */
+
+/* container */
+.portal-container {
+  text-align: center;
+  max-width: 900px;
+}
+
+/* logo */
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.brand-top {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.logo-img {
+  height: 42px;
+  object-fit: contain;
+}
+
+/* text beside logo */
+.brand-text {
+  text-align: left;
+}
+
+.brand-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1;
+}
+
+.brand-sub {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* headings */
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.subtitle {
+  color: #64748b;
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+/* cards */
+.portal-grid {
+  display: flex;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.portal-card {
+  flex: 1;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: #111827;
+  border: 1px solid #e5e7eb;
+  transition: 0.25s ease;
+}
+
+.portal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* icons */
+.portal-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.icon-green {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.icon-red {
+  background: #fee2e2;
+  color: #d70900;
+}
+
+/* text */
+.portal-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.portal-desc {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* CARD IMPROVEMENTS */
+.card {
+  background: white;
+  padding: 36px;
+  border-radius: 18px;
+  width: 420px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* subtitle */
+.card-sub {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* input refined */
+input {
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+  background: #f9fafb;
+}
+
+input:focus {
+  border-color: #d70900;
+  background: white;
+}
+
+/* button improved */
+button {
+  width: 100%;
+  padding: 16px;
+  background: #d70900;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #b80700;
+}
+
+/* OTP boxes */
+.otp-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.otp-box {
+  width: 50px;
+  height: 55px;
+  font-size: 22px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f9fafb;
+}
+
+.otp-box:focus {
+  border-color: #d70900;
+  background: white;
+}
+
+/* success */
+.success-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #dcfce7;
+  color: #16a34a;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.time-box {
+  background: #f1f5f9;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+}

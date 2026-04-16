@@ -1,11 +1,18 @@
-<h2>Enter Staff ID</h2>
+{% extends "partials/clocking_base.html" %} {% block content %}
 
-{% if error %}
-<p style="color: red">{{ error }}</p>
-{% endif %}
+<div class="card">
+  <h2>Staff Clock-In</h2>
+  <div class="card-sub">Enter your staff ID to continue</div>
 
-<form method="POST">
-  {% csrf_token %}
-  <input name="staff_id" placeholder="UBA001" />
-  <button type="submit">Continue</button>
-</form>
+  {% if error %}
+  <div class="error">{{ error }}</div>
+  {% endif %}
+
+  <form method="POST">
+    {% csrf_token %}
+    <input name="staff_id" placeholder="E.g. UBA001" />
+    <button>Continue</button>
+  </form>
+</div>
+
+{% endblock %}
