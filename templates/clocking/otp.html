@@ -1,0 +1,13 @@
+<h2>Welcome {{ staff.full_name }}</h2>
+
+{% if error %}
+<p style="color: red">{{ error }}</p>
+{% endif %}
+
+<form method="POST">
+  {% csrf_token %}
+  <input name="otp" placeholder="123456" />
+  <button type="submit">Verify</button>
+</form>
+
+<p>Demo OTP: 123456</p>

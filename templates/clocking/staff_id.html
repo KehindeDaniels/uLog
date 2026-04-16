@@ -1,0 +1,11 @@
+<h2>Enter Staff ID</h2>
+
+{% if error %}
+<p style="color: red">{{ error }}</p>
+{% endif %}
+
+<form method="POST">
+  {% csrf_token %}
+  <input name="staff_id" placeholder="UBA001" />
+  <button type="submit">Continue</button>
+</form>
