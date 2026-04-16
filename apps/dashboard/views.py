@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import timezone
 from datetime import datetime
 
@@ -75,3 +75,52 @@ def attendance_logs(request):
     }
 
     return render(request, "dashboard/logs.html", context)
+
+
+
+@login_required
+def staff_management(request):
+    error = None
+
+    # ADD STAFF
+    if request.method == "POST":
+        staff_id = request.POST.get("staff_id", "").upper()
+        full_name = request.POST.get("full_name")
+        email = request.POST.get("email")
+        department = request.POST.get("department")
+
+        if not staff_id or not full_name or not email:
+            error = "All fields are required"
+
+        elif Staff.objects.filter(staff_id=staff_id).exists():
+            error = f"{staff_id} already exists"
+
+        else:
+            Staff.objects.create(
+                staff_id=staff_id,
+                full_name=full_name,
+                email=email,
+                department=department,
+            )
+            return redirect("/control/staff/")
+
+    staff_list = Staff.objects.all().order_by("staff_id")
+
+    return render(
+        request,
+        "dashboard/staff.html",
+        {
+            "staff_list": staff_list,
+            "error": error,
+            "active_page": "staff",
+        },
+    )
+
+
+@login_required
+def toggle_staff(request, staff_id):
+    staff = Staff.objects.get(staff_id=staff_id)
+    staff.is_active = not staff.is_active
+    staff.save()
+
+    return redirect("/control/staff/")

@@ -252,3 +252,28 @@ th {
   background: #fee2e2;
   color: #991b1b;
 }
+
+/* staff */
+.staff-form {
+  display: grid;
+  gap: 10px;
+}
+
+.staff-form input,
+.staff-form select {
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.staff-form button {
+  background: #d70900;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.staff-form button:hover {
+  background: #b80700;
+}
