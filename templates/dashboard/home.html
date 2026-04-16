@@ -1,0 +1,64 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <title>UBA Control Room - Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>UBA Control Room Dashboard</h1>
+
+      <div class="stats-grid">
+        <div class="stat-card total">
+          <div class="stat-label">Total Staff</div>
+          <div class="stat-number">{{ total }}</div>
+        </div>
+        <div class="stat-card present">
+          <div class="stat-label">Present</div>
+          <div class="stat-number">{{ present }}</div>
+        </div>
+        <div class="stat-card absent">
+          <div class="stat-label">Absent</div>
+          <div class="stat-number">{{ absent }}</div>
+        </div>
+        <div class="stat-card late">
+          <div class="stat-label">Late</div>
+          <div class="stat-number">{{ late }}</div>
+        </div>
+      </div>
+
+      <h2>Today's Activity</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Staff ID</th>
+            <th>Name</th>
+            <th>Clock In</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for record in today_records %}
+          <tr>
+            <td>{{ record.staff.staff_id }}</td>
+            <td>{{ record.staff.full_name }}</td>
+            <td>{{ record.clock_in|time:"H:i"|default:"--" }}</td>
+            <td>
+              <span class="status-badge status-{{ record.status }}">
+                {{ record.get_status_display }}
+              </span>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="4" style="text-align: center">
+              No attendance records for today
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
